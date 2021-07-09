@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e0c31575-fdf0-4662-ab73-e4a69d5e9403}</ProjectGuid>
+    <ProjectGuid>{a4236552-4aab-e957-3d1b-f52f79d4592d}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -36,13 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\WorldSystemDemo\Scripts\DaylightSystem.cs" />
-     <Compile Include="Assets\WorldSystemDemo\Scripts\WorldSystem.cs" />
-     <Compile Include="Assets\WorldSystemDemo\Scripts\ClockSystem.cs" />
-     <Compile Include="Assets\WorldSystemDemo\Scripts\SystemRoot.cs" />
-     <Compile Include="Assets\WorldSystemDemo\Scripts\WeatherSystem.cs" />
-     <None Include="Assets\WorldSystemDemo\Shaders\GrassyTerrain.shader" />
-     <None Include="Assets\WorldSystemDemo\Shaders\TriColorCel.shader" />
+     <Compile Include="Assets\ShaderWorld\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\ShaderWorld\Scripts\MouseLook.cs" />
+     <None Include="Assets\ShaderWorld\Shaders\GrassyTerrain.shader" />
+     <None Include="Assets\ShaderWorld\Shaders\TriColorCel.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -275,16 +272,13 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="MiscUtil">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Core/Dependencies/MiscUtil/MiscUtil.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Core/Dependencies/MiscUtil/MiscUtil.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Flow/Dependencies/NCalc/Antlr3.Runtime.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Flow/Dependencies/NCalc/Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    <Reference Include="clipper_library">
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/PackageCache/com.unity.cinemachine@2.7.4/Runtime/ThirdParty/clipper_library.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -632,52 +626,58 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.1f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VSSettingsProvider">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>C:/Users/Chris/Documents/UnityProjects/ShaderWorld/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+        <HintPath>C:/Users/juanc/OneDrive/Desktop/Repos/GameRepo1/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
