@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.unity.cinemachine": "2.7.4",
     "com.unity.ide.rider": "3.0.5",
     "com.unity.test-framework": "1.1.24",
     "com.unity.textmeshpro": "3.0.4",
