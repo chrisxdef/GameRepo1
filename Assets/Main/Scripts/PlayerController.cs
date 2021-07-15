@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         verticalMovement = Input.GetAxisRaw("Vertical");
         Vector3 move = transform.right * horizontalMovement + transform.forward * verticalMovement;
         player.Move(move.normalized * playerSpeed * Time.deltaTime);
-        Debug.Log(player.velocity.magnitude);
+        //Debug.Log(player.velocity.magnitude);
         //Gravity and jump
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
