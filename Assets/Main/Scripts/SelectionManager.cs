@@ -21,6 +21,7 @@ public class SelectionManager : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
+            /*
             var selection = hit.transform;
             if(selection.CompareTag(pickupTag))
             {
@@ -31,6 +32,15 @@ public class SelectionManager : MonoBehaviour
                     pickupText.SetActive(false);
                 }
                 _selection = selection;
+            }
+            */
+
+            // check for interactable
+            Interactable i = hit.collider.GetComponent<Interactable>();
+            if(i != null){
+                if(Input.GetKeyDown(KeyCode.F)){
+                    i.Interact();
+                }
             }
         }
     }
