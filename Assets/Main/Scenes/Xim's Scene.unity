@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181811863}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 233161290}
   - component: {fileID: 233161295}
   - component: {fileID: 233161294}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Orb
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233161289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.05, y: 0.82, z: -4.81}
+  m_LocalPosition: {x: 10.98, y: 0.82, z: -2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 244476273}
   - component: {fileID: 244476272}
   - component: {fileID: 244476275}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 591943326}
   - component: {fileID: 591943328}
   - component: {fileID: 591943327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 897752133}
   - component: {fileID: 897752132}
   - component: {fileID: 897752131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1171,8 +1171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc87e226cdd306a458996c8c1e685d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 5
-  interactableText: {fileID: 308057310}
+  _interactDistance: 5
+  _interactableText: {fileID: 308057310}
 --- !u!4 &1563632044
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,7 +1204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220523267585466758, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220523267585466759, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
+      propertyPath: closed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8071710726904196972, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
       propertyPath: m_RootOrder

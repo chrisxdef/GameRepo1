@@ -8,23 +8,28 @@ public class SelectionManager : MonoBehaviour
 
     private Transform _selection;
 
-    public float interactDistance = 1.0f;
+    public float _interactDistance = 1.0f;
     
-    public Text interactableText;
-    int interactableLayerMask = 1 << 7;
+    public Text _interactableText;
+    int _interactableLayerMask = 0;
 
+    void Start(){
+        int defaultLayer = LayerMask.GetMask("Default");
+        int groundLayer = LayerMask.GetMask("Ground");
+        _interactableLayerMask = defaultLayer | groundLayer;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(_selection != null)
         {
-            interactableText.text = " ";
+            _interactableText.text = " ";
             _selection = null;
         }
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, interactDistance, interactableLayerMask))
+        if(Physics.Raycast(ray, out hit, _interactDistance, _interactableLayerMask))
         {
             /*
             var selection = hit.transform;
@@ -43,7 +48,7 @@ public class SelectionManager : MonoBehaviour
             var selection = hit.transform;
             Interactable i = selection.GetComponent<Interactable>();
             if(i != null){
-                interactableText.text = i.interactText;
+                _interactableText.text = i.interactText;
                 if(Input.GetKeyDown(KeyCode.F)){
                     i.Interact();
                 }
