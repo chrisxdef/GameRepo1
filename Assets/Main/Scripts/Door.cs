@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Door : Actionable
 {
-
     public bool _closed;
 
     public float _openAngle = 90f;
