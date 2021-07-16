@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectionManager : MonoBehaviour
 {
-    private string pickupTag = "Pickup";
 
     private Transform _selection;
 
     public float interactDistance = 1.0f;
+    
+    public Text interactableText;
+    int interactableLayerMask = 1 << 7;
+
 
     // Update is called once per frame
     void Update()
     {
         if(_selection != null)
         {
+            interactableText.text = " ";
             _selection = null;
         }
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit, interactDistance, interactableLayerMask))
         {
             /*
             var selection = hit.transform;
@@ -35,15 +40,15 @@ public class SelectionManager : MonoBehaviour
             */
             
             // check for interactable
-            if(hit.distance < interactDistance){
-                Interactable i = hit.collider.GetComponent<Interactable>();
-                if(i != null){
-                    if(Input.GetKeyDown(KeyCode.F)){
-                        i.Interact();
-                    }
+            var selection = hit.transform;
+            Interactable i = selection.GetComponent<Interactable>();
+            if(i != null){
+                interactableText.text = i.interactText;
+                if(Input.GetKeyDown(KeyCode.F)){
+                    i.Interact();
                 }
             }
-           
+            _selection = selection;
         }
     }
 }
