@@ -6,13 +6,18 @@ public class Door : Actionable
 {
     public bool _closed;
     private GameLock _lock;
+    private Interactable _interactable;
     public float _openAngle = 90f;
     public float _deltaAngle = 90f;
 
     void Start(){
+        _interactable = gameObject.GetComponent<Interactable>();
         // Check if door has lock
         _lock = gameObject.GetComponent<GameLock>();
-        if(_lock && _lock.Locked) _closed = true;
+        if(_lock && _lock.Locked){
+            _closed = true;
+            if(_interactable) _interactable.interactText = "Locked";
+        }
     }
 
     public override void Act(){
@@ -20,8 +25,10 @@ public class Door : Actionable
         if(_lock && _lock.Locked && _closed){
             bool unlocked = _lock.Unlock();
             if(!unlocked) return;
+        } else {
+            _closed = !_closed;
         }
-        _closed = !_closed;
+        if(_interactable) _interactable.interactText = _closed ? "Open" : "Close";
         Debug.Log("door");
     }
 
