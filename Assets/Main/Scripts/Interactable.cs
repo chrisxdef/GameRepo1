@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public string interactText = "Use";
+    public string _textPrefix = "[F]";
+    public string _text = "Use";
+    public string interactText{
+        get{return _textPrefix + " " + _text;}
+        set{_text = value;}
+    }
     public List<Actionable> actors;
     
     public void Interact(){
