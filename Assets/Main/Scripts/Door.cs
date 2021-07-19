@@ -5,10 +5,22 @@ using UnityEngine;
 public class Door : Actionable
 {
     public bool _closed;
-
+    private GameLock _lock;
     public float _openAngle = 90f;
     public float _deltaAngle = 90f;
+
+    void Start(){
+        // Check if door has lock
+        _lock = gameObject.GetComponent<GameLock>();
+        if(_lock && _lock.Locked) _closed = true;
+    }
+
     public override void Act(){
+        // Check if has locked and closed.
+        if(_lock && _lock.Locked && _closed){
+            bool unlocked = _lock.Unlock();
+            if(!unlocked) return;
+        }
         _closed = !_closed;
         Debug.Log("door");
     }
