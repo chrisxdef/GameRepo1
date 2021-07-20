@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blending: 0.317
+    - _Blending: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -74,22 +74,22 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _dThreshold: 0.182
-    - _hBlend: 0.21
-    - _hThreshold: 0.9
-    - _lThreshold: 0.644
-    - _sBlend: 0.81
+    - _dThreshold: 0.261
+    - _hBlend: 0.035
+    - _hThreshold: 0.965
+    - _lThreshold: 0.457
+    - _sBlend: 0.828
     - _sThreshold: 0
     m_Colors:
-    - _Base: {r: 0.040666364, g: 0.3207547, b: 0.0075649684, a: 1}
+    - _Base: {r: 0.29803923, g: 0.2901961, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Dark: {r: 0.04776927, g: 0.20754719, b: 0.032306876, a: 1}
+    - _Dark: {r: 0.2627451, g: 0.25490198, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GrassBaseColor: {r: 0.54870594, g: 0.8679245, b: 0.29067284, a: 1}
     - _GrassDarkColor: {r: 0.3, g: 0.1, b: 0.6, a: 1}
     - _GrassHighlight: {r: 0.9, g: 0.8, b: 1, a: 1}
     - _GrassLightColor: {r: 0.7, g: 0.4, b: 0.9, a: 1}
-    - _Highlight: {r: 0.102686435, g: 0.8207547, b: 0.027100407, a: 1}
-    - _Light: {r: 0.08417793, g: 0.6037736, b: 0.025631888, a: 1}
-    - _Shadow: {r: 0.0021359876, g: 0.1509434, b: 0.0021359876, a: 1}
+    - _Highlight: {r: 0.36862746, g: 0.3529412, b: 0, a: 1}
+    - _Light: {r: 0.33333334, g: 0.31764707, b: 0, a: 1}
+    - _Shadow: {r: 0.09433961, g: 0.082078494, b: 0.012014951, a: 1}
   m_BuildTextureStacks: []
