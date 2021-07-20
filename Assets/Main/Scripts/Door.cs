@@ -16,7 +16,6 @@ public class Door : Actionable
         _lock = gameObject.GetComponent<GameLock>();
         if(_lock && _lock.Locked){
             _closed = true;
-            if(_interactable) _interactable.interactText = "Locked";
         }
     }
 
@@ -28,11 +27,17 @@ public class Door : Actionable
         } else {
             _closed = !_closed;
         }
-        if(_interactable) _interactable.interactText = _closed ? "Open" : "Close";
         Debug.Log("door");
     }
 
     void Update(){
+        if(_interactable){
+            if(_lock && _lock.Locked){
+                _interactable.interactText = "Locked";
+            } else {
+                _interactable.interactText = _closed ? "Open" : "Close";
+            }
+        }
         float y = this.transform.eulerAngles.y;
         if(_closed && y > 0f || !_closed && y < 90f){
             float angle = _deltaAngle*Time.deltaTime;
