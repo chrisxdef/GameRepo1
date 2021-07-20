@@ -15,17 +15,17 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_FogColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_FogMode: 1
+  m_FogDensity: 0.09
+  m_LinearFogStart: 10
+  m_LinearFogEnd: 10.01
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.49
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.16037738, g: 0.14600393, b: 0.14600393, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -1233,7 +1233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220523267585466759, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
       propertyPath: _closed
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220523267585466759, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
+      propertyPath: _openAngle
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8071710726904196972, guid: a7eed8e7c36139d4dbb9c546991e10f0, type: 3}
       propertyPath: m_RootOrder
@@ -1316,7 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _code: DOOR1
-  _startLocked: 1
+  _startLocked: 0
 --- !u!1 &1307061643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,7 +3369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8497314167063942196, guid: b798ff633b0fe5047b8d42824414c858, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10.092
       objectReference: {fileID: 0}
     - target: {fileID: 8497314167063942196, guid: b798ff633b0fe5047b8d42824414c858, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3373,7 +3377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8497314167063942196, guid: b798ff633b0fe5047b8d42824414c858, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.66
+      value: 18.379
       objectReference: {fileID: 0}
     - target: {fileID: 8497314167063942196, guid: b798ff633b0fe5047b8d42824414c858, type: 3}
       propertyPath: m_LocalRotation.w
