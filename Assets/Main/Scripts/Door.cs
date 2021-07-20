@@ -9,7 +9,7 @@ public class Door : Actionable
     private Interactable _interactable;
     public float _openAngle = 90f;
     public float _deltaAngle = 90f;
-
+    private float _baseYAngle;
     void Start(){
         _interactable = gameObject.GetComponent<Interactable>();
         // Check if door has lock
@@ -17,6 +17,7 @@ public class Door : Actionable
         if(_lock && _lock.Locked){
             _closed = true;
         }
+        _baseYAngle = this.transform.eulerAngles.y;
     }
 
     public override void Act(){
@@ -34,15 +35,18 @@ public class Door : Actionable
         if(_interactable){
             if(_lock && _lock.Locked){
                 _interactable.interactText = "Locked";
-            } else {
+            } else if(_interactable){
                 _interactable.interactText = _closed ? "Open" : "Close";
             }
         }
+       
         float y = this.transform.eulerAngles.y;
-        if(_closed && y > 0f || !_closed && y < 90f){
+        float min = _baseYAngle;
+        float max = _baseYAngle + _openAngle;
+        if(_closed && y > min || !_closed && y < max){
             float angle = _deltaAngle*Time.deltaTime;
             if(_closed) angle *= -1.0f;
-            float s = Mathf.Clamp(y + angle, 0f, _openAngle);
+            float s =  Mathf.Clamp(y + angle, min, max);
             this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, s, this.transform.eulerAngles.z);   
         }
     }
