@@ -352,6 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _phoneScreenUI: {fileID: 1282871911}
+  _cameraImage: {fileID: 982090528}
+  _shutterDelay: 0.1
 --- !u!1 &233161289
 GameObject:
   m_ObjectHideFlags: 0
