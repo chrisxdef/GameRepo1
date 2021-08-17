@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class PhoneCameraControls : MonoBehaviour
 {
     public GameObject _phoneScreenUI;
@@ -37,6 +38,15 @@ public class PhoneCameraControls : MonoBehaviour
             else this.EnableFrontCamera();
         } else if(_cameraIsOpen && Input.GetKeyDown(KeyCode.F)){
             _takePicture = true;
+        } if(Input.GetKeyDown(KeyCode.Alpha2)){
+            if(_viewerIsOpen) this.CloseImageViewer();
+            else this.OpenImageViewer();
+        } else if(_viewerIsOpen){
+            if(Input.GetKeyDown(KeyCode.Alpha3)){
+                this.PrevImage();
+            } else if (Input.GetKeyDown(KeyCode.Alpha4)){
+                this.NextImage();
+            }
         }
     }
 
@@ -51,7 +61,7 @@ public class PhoneCameraControls : MonoBehaviour
 
     private void CloseCamera(){
         _cameraIsOpen = false;
-        _cameraImage.SetActive(true);
+        _cameraImage.SetActive(false);
         _phoneCamera.enabled = false;
         _phoneScreenUI.SetActive(false);
     }
@@ -108,11 +118,34 @@ public class PhoneCameraControls : MonoBehaviour
         _viewerIsOpen = true;
         _imageViewer.SetActive(true);
         _phoneScreenUI.SetActive(true);
+        if(_imageList.Count > 0) _imageViewer.transform.Find("NoImageText").gameObject.SetActive(false);
+        this.ViewImage(_imageList.Count -1);
     }
 
     private void CloseImageViewer(){
         _viewerIsOpen = false;
-        _imageViewer.SetActive(true);
+        _imageViewer.SetActive(false);
         _phoneScreenUI.SetActive(false);
+    }
+
+    private void ViewImage(int index){
+        if(index >= 0 && index < _imageList.Count){
+            RawImage ri = _imageViewer.GetComponent<RawImage>();
+            _imageViewerIndex = index;
+            string filepath = _imageList[index];
+            byte[] bytes;
+            bytes = System.IO.File.ReadAllBytes(filepath);
+            Debug.Log(string.Format("Vieweing screenshot {0}", filepath));
+            Texture2D tex = new Texture2D(1,1);
+            tex.LoadImage(bytes);
+            ri.texture = tex;
+        }
+    }
+
+    private void NextImage(){
+        this.ViewImage(_imageViewerIndex - 1);
+    }
+    private void PrevImage(){
+        this.ViewImage(_imageViewerIndex + 1);
     }
 }
