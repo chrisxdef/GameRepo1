@@ -5,6 +5,8 @@ public class PhoneCameraControls : MonoBehaviour
 {
     public GameObject _phoneScreenUI;
     public GameObject _cameraImage;
+    public GameObject _imageViewer;
+
     [Range(0.1f, 1.0f)]
     public float _shutterDelay;
     private Camera _phoneCamera; // assigned in Start()
@@ -15,6 +17,9 @@ public class PhoneCameraControls : MonoBehaviour
     private KeyCode _swapCameraView = KeyCode.Tab; 
     private Vector3 _frontCameraTransform = new Vector3(180.0f, 0f, 180.0f);
     private Vector3 _backCameraTransform = Vector3.zero;
+    private List<string> _imageList = new List<string>();
+    private int _imageViewerIndex = 0;
+    private bool _viewerIsOpen = false;
     void Start()
     {
         _phoneCamera = GetComponent<Camera>();
@@ -36,14 +41,17 @@ public class PhoneCameraControls : MonoBehaviour
     }
 
     private void OpenCamera(){
+        this.CloseImageViewer();
         _cameraIsOpen = true;
         _phoneCamera.enabled = true;
+        _cameraImage.SetActive(true);
         _phoneScreenUI.SetActive(true);
         this.EnableBackCamera();
     }
 
     private void CloseCamera(){
         _cameraIsOpen = false;
+        _cameraImage.SetActive(true);
         _phoneCamera.enabled = false;
         _phoneScreenUI.SetActive(false);
     }
@@ -76,10 +84,11 @@ public class PhoneCameraControls : MonoBehaviour
         
         byte[] bytes = screenShot.EncodeToPNG();
         string filename = string.Format("{0}/screenshots/{1}{2}.png", 
-                              Application.dataPath, 
-                              Random.Range(11, 99), 
-                              System.DateTime.Now.ToString("MMddHHmmss"));
+                              Application.dataPath,  
+                              System.DateTime.Now.ToString("MMddHHmmss"),
+                              Random.Range(11, 99));
         System.IO.File.WriteAllBytes(filename, bytes);
+        _imageList.Add(filename);
         Debug.Log(string.Format("Took screenshot to: {0}", filename));
 
         StartCoroutine(this.WaitForPicture());
@@ -91,5 +100,19 @@ public class PhoneCameraControls : MonoBehaviour
         _takePicture = false;
         _phoneCamera.enabled = true;
         _cameraImage.SetActive(true);
+    }
+
+    //Image viewer code -- TODO: Refactor into PhoneHUD, PhoneCamera, and PhoneImageViewer
+    private void OpenImageViewer(){
+        this.CloseCamera();
+        _viewerIsOpen = true;
+        _imageViewer.SetActive(true);
+        _phoneScreenUI.SetActive(true);
+    }
+
+    private void CloseImageViewer(){
+        _viewerIsOpen = false;
+        _imageViewer.SetActive(true);
+        _phoneScreenUI.SetActive(false);
     }
 }
