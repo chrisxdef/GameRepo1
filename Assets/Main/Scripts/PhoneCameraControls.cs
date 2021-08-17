@@ -80,7 +80,10 @@ public class PhoneCameraControls : MonoBehaviour
 
     void OnPostRender() {
         if(!_takePicture) return;
+        StartCoroutine(this.WaitForPicture());
+    }
 
+    private IEnumerator WaitForPicture(){
         _phoneCamera.enabled = false;
 
         RenderTexture activeTexture = _phoneCamera.activeTexture;
@@ -93,18 +96,13 @@ public class PhoneCameraControls : MonoBehaviour
         activeTexture = null;
         
         byte[] bytes = screenShot.EncodeToPNG();
-        string filename = string.Format("{0}/screenshots/{1}{2}.png", 
-                              Application.dataPath,  
+        string filename = string.Format("{0}/{1}{2}.png", 
+                              Application.persistentDataPath,  
                               System.DateTime.Now.ToString("MMddHHmmss"),
                               Random.Range(11, 99));
         System.IO.File.WriteAllBytes(filename, bytes);
         _imageList.Add(filename);
         Debug.Log(string.Format("Took screenshot to: {0}", filename));
-
-        StartCoroutine(this.WaitForPicture());
-    }
-
-    private IEnumerator WaitForPicture(){
         _cameraImage.SetActive(false);
         yield return new WaitForSeconds(_shutterDelay);
         _takePicture = false;
