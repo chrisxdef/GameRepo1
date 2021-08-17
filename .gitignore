@@ -1,6 +1,5 @@
 # Game Specific Data
-/Assets/screenshots/*.png
-/Assets/screenshots/*.png.meta
+/Assets/screenshots
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
@@ -73,3 +72,4 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
