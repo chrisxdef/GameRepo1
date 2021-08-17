@@ -36,7 +36,7 @@ public class PhoneCameraControls : MonoBehaviour
         } else if(_cameraIsOpen && Input.GetKeyDown(_swapCameraView)){
             if(_frontCameraEnabled) this.EnableBackCamera();
             else this.EnableFrontCamera();
-        } else if(_cameraIsOpen && Input.GetKeyDown(KeyCode.F)){
+        } else if(_cameraIsOpen && Input.GetKeyDown(KeyCode.Q)){
             _takePicture = true;
         } if(Input.GetKeyDown(KeyCode.Alpha2)){
             if(_viewerIsOpen) this.CloseImageViewer();

@@ -1,12 +1,13 @@
 Controls
 
-E : Flashlight Toggle On/Off
-
 WASD : Movement
+F : Interact with objects
+
+E : Flashlight Toggle On/Off
 
 Camera
 1 : Camera Toggle Open/Close
-F : Take Picture
+Q : Take Picture
 Tab : Toggle Front/Back Camera
 
 Picture Viewer:
