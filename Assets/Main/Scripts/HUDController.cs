@@ -9,8 +9,7 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        this.OpenSystemMenu();
     }
 
     // Update is called once per frame
@@ -18,16 +17,24 @@ public class HUDController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
             if(_systemMenu.activeSelf){
-                _systemMenu.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                this.CloseSystemMenu();
             } else {
-                _systemMenu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                this.OpenSystemMenu();
             }
         }
         
+    }
+
+    public void OpenSystemMenu(){
+        _systemMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void CloseSystemMenu(){
+        _systemMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void QuitGame(){

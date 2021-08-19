@@ -1213,18 +1213,18 @@ MonoBehaviour:
 
     Controls
 
-    
+
 
     WASD : Movement
 
     F
     : Interact with objects
 
-    
+
 
     E : Flashlight Toggle On/Off
 
-    
+
 
     Camera
 
@@ -1236,14 +1236,14 @@ MonoBehaviour:
     Tab : Toggle Front/Back
     Camera
 
-    
+
 
     Picture Viewer:
 
     2 : Viewer Toggle Open/Close
 
-    3
-    : Previous Image
+    3 : Previous
+    Image
 
     4 : Next Image
 
@@ -1352,7 +1352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637657795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3305,6 +3305,10 @@ PrefabInstance:
     - target: {fileID: 3031380884878190775, guid: f8422ba0232e7774eb4bbd62ecd27b7a, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031380884878190775, guid: f8422ba0232e7774eb4bbd62ecd27b7a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3031380884947160209, guid: f8422ba0232e7774eb4bbd62ecd27b7a, type: 3}
       propertyPath: m_Color.a
